@@ -1,0 +1,22 @@
+.standard-card-img {
+    background-image: url("https://via.placeholder.com/1600x900");
+    background-size: cover;
+}
+
+.card {
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    border: none;
+	border-radius: 0px;
+    .item {
+        padding: 5rem 20rem !important;
+	    text-shadow: 0px 2px #000000;
+    }
+    .sky-gradient {
+        background: linear-gradient(140deg,#03c31140,#0052b75e) !important;
+    }
+    h1 {
+        font-size: 3.2em;
+    }
+}

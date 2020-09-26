@@ -1,0 +1,32 @@
+
+
+
+function App() {
+
+  return (
+
+  <React.Fragment>
+    <Router>
+      <Switch>
+        <div id="page-container" style={pageContainer}>
+          <Header />
+          <div id="content-wrap" style={contentWrapper}>
+            <main className="mb-5">
+              <Route exact path="/" component={Home} />
+              <Route path="/about" component={About} />
+              <Route path="/contact" component={Contact} />
+              <Route component={NoMatch} />
+            </main>
+          </div>
+          <Footer />
+        </div>
+      </Switch>
+    </Router>
+  </React.Fragment>
+
+
+
+  );
+}
+
+export default App;
