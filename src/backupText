@@ -30,3 +30,35 @@ function App() {
 }
 
 export default App;
+
+		return (
+			<React.Fragment>
+				<Router>
+					<div id="page-container" className="page-container">
+						<Header />
+						<div id="content-wrap" style={contentWrapper}>
+							<main className="mb-5">
+								<Switch>
+									<Route exact path="/" component={Home} />
+									<Route path="/about" component={About} />
+									<Route path="/contact" component={Contact} />
+									<Route component={NoMatch} />
+								</Switch>
+							</main>
+						</div>
+						<Footer />
+					</div>
+				</Router>
+			</React.Fragment>
+		);
+
+{props.progress.map(function (n) {
+  return ([
+    <React.Fragment>
+        <h6 class="mt-4">Embedded systems / Electronics</h6>
+        <div class="my-2 progress md-progress">
+            <div class="progress-bar" role="progressbar" style="width: 77%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </React.Fragment>
+  ]);
+})}

@@ -1,40 +1,36 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-import { Home } from 'Home.js';
-import { About } from 'About.js';
-import { Contact } from 'Contact.js';
-import { NoMatch } from 'NoMatch.js';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import Header from 'layout/Header';
+import Routes from 'routing/Routes';
 import Footer from 'layout/Footer';
 
-var pageContainer = {
-  position: "relative",
-  minHeight: 100+ "vh",
-}
-
-var contentWrapper = {
-  paddingBottom: 2.5 + "rem",
-}
+import 'styles/app.scss';
 
 class App extends Component {
+
+	constructor() {
+        super();
+        this.handleRoute = this.handleRoute.bind(this);
+        this.state = {
+          route: ""
+        };
+    }
+
+    handleRoute(nextRoute) {
+        this.setState({route: nextRoute});
+	  }
+	  
 	render() {
+
+		const route = this.state.route;
+
 		return (
 			<React.Fragment>
 				<Router>
-					<div id="page-container" style={pageContainer}>
+					<div id="page-container" className={"pageContainer " + this.state.route}>
 						<Header />
-						<div id="content-wrap" style={contentWrapper}>
-							<main className="mb-5">
-								<Switch>
-									<Route exact path="/" component={Home} />
-									<Route path="/about" component={About} />
-									<Route path="/contact" component={Contact} />
-									<Route component={NoMatch} />
-								</Switch>
-							</main>
-						</div>
+						<Routes routing={this.state.route} onRoutingChange={this.handleRoute} />
 						<Footer />
 					</div>
 				</Router>

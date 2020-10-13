@@ -1,0 +1,26 @@
+.navbar {
+    .navbar-brand {
+        .nav-link {
+            color: rgba(255,255,255,.5);
+            &.active {
+                color: white;
+            }
+        }
+    }
+    .nav-item {
+        .nav-link {
+            font-size: 1.1rem;
+        }
+    }
+    .dropdown-menu {
+        &.show {
+            background-color: #343a40!important;
+        }
+        .nav-link {
+            padding: 10px;
+            &.active {
+                background-color: #666666!important;
+            }
+        }
+    }
+}

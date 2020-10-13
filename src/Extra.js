@@ -13,26 +13,33 @@ const summaryText = [
 ];
 
 let skills = [];
-skills.push({title: "HTML, CSS, JavaScript (Frontend)", width: "90"});
-skills.push({title: "C and Java programming", width: "75"});
-skills.push({title: "Embedded systems / Electronics", width: "72"});
-skills.push({title: "Automation- and Control theory", width: "60"});
-skills.push({title: "Telecommunication", width: "50"});
-skills.push({title: "Linear algebra and Calculus", width: "50"});
-skills.push({title: "Android application development", width: "35"});
 
-export const About = () => (
+skills.push({title: "Embedded systems / Electronics", width: "72"});
+skills.push({title: "C and Java programming", width: "75"});
+skills.push({title: "HTML, CSS, JavaScript", width: "88"});
+skills.push({title: "Android application development", width: "42"});
+skills.push({title: "Automation- and Control theory", width: "60"});
+skills.push({title: "Telecommunication", width: "55"});
+skills.push({title: "Linear algebra and Calculus", width: "55"});
+
+export const Extra = () => (
 
 	<React.Fragment>
+		<TopImage name="Robin Winroth" subInfo="" image="https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
 		<Container>
-			<Title title="Robin Winroth" />
+			<Title title="About me" />
 			<Row className="pb-5">
 				<Col md={5}>
 					<InfoText title="Summary" text={summaryText}/>
 				</Col>
 				<Col md={2}></Col>
 				<Col md={5}>
-					<Progress title="Knowledge and skills" progress={skills}></Progress>
+					<Progress title="My skills" progress={skills}></Progress>
+				</Col>
+			</Row>
+			<Row className="pb-5">
+				<Col>
+					<Thumbnail icon="calculator" title="Algorithm" subtitle="Visualization of algorithms" text="Look at one of the most common algorithms and how they work for easier understanding of their principles." image="https://cdn.pixabay.com/photo/2015/11/15/07/47/geometry-1044090_960_720.jpg" />
 				</Col>
 			</Row>
 		</Container>

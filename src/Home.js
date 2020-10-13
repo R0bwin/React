@@ -1,10 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import Card from 'components/Card';
+import FullImage from 'components/FullImage';
+import 'styles/home.scss';
 
-export const Home = () => (
+const skills = [];
+skills.push("Software developer");
+skills.push("Frontend developer");
+skills.push("Electrical Engineer");
 
-	<Card name="Robin Winroth" degree="Bachelor of Science in Engineering" image="https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+const name = "Robin Winroth";
+const subInfo = "The ability to work with anything IT. From software to hardware.";
 
-	
-)
+class Home extends Component {
+
+	constructor(props) {
+		super();
+		this.handleChange = this.handleChange.bind(this);
+	}
+
+	handleChange(route) {
+		this.props.onRoutingChange(route);
+	}
+
+	componentDidMount(){
+		this.handleChange("home");
+	}
+
+	componentWillUnmount(){
+		this.handleChange("");
+	}
+
+	render() {
+		return (
+			<React.Fragment>
+				<FullImage image="https://cdn.hipwallpaper.com/i/38/63/fcu18Y.png" name={name} skills={skills} subInfo={subInfo} />
+			</React.Fragment>
+		)
+	}
+
+}
+
+export default Home;

@@ -1,0 +1,34 @@
+.board-wrapper {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    .board {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        .board-row {
+            height: 100%;
+            .square {
+                align-items: center;
+                display: inline-grid;
+                justify-content: center;
+                height: 100%;
+                font-size: 3vw;
+                @media (max-width: 1200px) {
+                    // font-size: 3vw;
+                }
+                @media (max-width: 1000px) {
+                    // font-size: 2vw;
+                }
+                .square-content {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+
+    }
+
+}
