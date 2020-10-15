@@ -1,5 +1,5 @@
 import React from 'react';
-import 'styles/fullimage.scss';
+import '../styles/fullimage.scss';
 
 function TopImage(props) {
 

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Route, Switch } from 'react-router-dom';
 
-import Home from 'Home';
-import { About } from 'About';
-import { Contact } from 'Contact';
-import Tictactoe from 'components/games/Tictactoe';
+import Home from '../Home';
+import { About } from '../About';
+import { Contact } from '../Contact';
+import Tictactoe from '../components/games/Tictactoe';
 
-import { NoMatch } from 'NoMatch';
-
-
+import { NoMatch } from '../NoMatch';
 
 class Routes extends Component {
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import TopImage from 'components/TopImage';
-import Title from 'components/Title';
-import InfoText from 'components/InfoText';
-import Progress from 'components/Progress';
-import Thumbnail from 'components/Thumbnail';
+import TopImage from './components/TopImage';
+import Title from './components/Title';
+import InfoText from './components/InfoText';
+import Progress from './components/Progress';
+import Thumbnail from './components/Thumbnail';
 
 const summaryText = [
 	"My most valueable experience is with front-end development which lasted for almost 3 years. After that I decided to study to bachelors degree in electrical engineering. It took me 3 years to get my bachelors degree along with good grades. Most of my skills was aquired during my studies but I lack hands-on experience within most fields.",

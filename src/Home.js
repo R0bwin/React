@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import FullImage from 'components/FullImage';
-import 'styles/home.scss';
+import FullImage from './components/FullImage';
+import './styles/home.scss';
 
 const skills = [];
 skills.push("Software developer");

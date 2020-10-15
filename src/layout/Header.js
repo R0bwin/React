@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
-import 'styles/header.scss';
+import '../styles/header.scss';
 
 function Header() {
     return (
