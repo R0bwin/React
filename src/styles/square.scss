@@ -1,0 +1,18 @@
+button {
+    outline: 0 !important;
+    border: 2px solid black;
+}
+
+.board-row {
+    &:not(:last-of-type) {
+        button {
+            border-bottom: 0;
+        } 
+    }
+    button {
+        &:not(:last-of-type) {
+            border-right: 0;
+        }
+        
+    }
+}

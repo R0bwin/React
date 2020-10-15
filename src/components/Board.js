@@ -4,11 +4,11 @@ import Square from 'components/Square';
 
 import 'styles/board.scss';
 
-function renderSquare(i, width, fsize) {
-    return <Square value={i} width={width} fsize={fsize} />;
+function renderSquare(i, width, fsize, handleSquare, playerTurn) {
+    return <Square value={i} width={width} fsize={fsize} onSquareClick={handleSquare} playerTurn={playerTurn} />;
 }
 
-function returnGrid(rows, cols) {
+function returnGrid(rows, cols, handleSquare, playerTurn) {
 
     let rowSquares = [];
     let grid = [];
@@ -16,7 +16,7 @@ function returnGrid(rows, cols) {
 
     for(var i=0; i < rows; i++) {
         for(var j=0; j < cols; j++) {
-            rowSquares.push( renderSquare((i*cols)+(j+1), (100/cols), fsize) );
+            rowSquares.push( renderSquare((i*cols)+(j+1), (100/cols), fsize, handleSquare, playerTurn) );
         }
         grid.push(<div className="board-row" style={{height: (100/rows)+"%"}}>{rowSquares}</div>);
         rowSquares = [];
@@ -30,10 +30,20 @@ function returnGrid(rows, cols) {
 }
 
 class Board extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handleSquare = this.handleSquare.bind(this);
+    }
+
+    handleSquare(position) {;
+        this.props.onTurnChange(position);
+    }
+
     render() {
         return (
             <div class="board-wrapper">
-                {returnGrid(this.props.rows, this.props.cols)}
+                {returnGrid(this.props.rows, this.props.cols, this.handleSquare, this.props.playerTurn)}
             </div>
         );
     }

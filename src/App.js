@@ -19,7 +19,7 @@ class App extends Component {
 
     handleRoute(nextRoute) {
         this.setState({route: nextRoute});
-	  }
+	}
 	  
 	render() {
 
