@@ -1,0 +1,21 @@
+.modal {
+    display: table !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    .modal-dialog {
+        display: table-cell;
+        vertical-align: middle;
+
+        .modal-content {
+            margin: 0 auto;
+            @media (min-width: 576px) {
+                max-width: 500px;
+            }
+            max-width: 400px;
+        }
+    }
+}

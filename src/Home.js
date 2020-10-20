@@ -33,11 +33,11 @@ class Home extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<FullImage image="https://cdn.hipwallpaper.com/i/38/63/fcu18Y.png" name={name} skills={skills} subInfo={subInfo} />
+				<FullImage image={require('./assets/images/home-fullscreen.png')} title={name} skills={skills} subInfo={subInfo} />
 			</React.Fragment>
 		)
 	}
-
+	
 }
 
 export default Home;

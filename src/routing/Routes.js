@@ -4,11 +4,11 @@ import { BrowserRouter as Route, Switch } from 'react-router-dom';
 import Home from 'Home';
 import { About } from 'About';
 import { Contact } from 'Contact';
+import Weather from 'Weather';
 import Tictactoe from 'components/games/Tictactoe';
+import Sudoku from 'components/games/Sudoku';
 
 import { NoMatch } from 'NoMatch';
-
-
 
 class Routes extends Component {
 
@@ -27,10 +27,12 @@ class Routes extends Component {
                 <div className="contentWrapper">
                     <main className="mb-5">
                         <Switch>
-                            <Route exact path="/"><Home routing={this.props.routing} onRoutingChange={this.handleRoute} /></Route>
+                            <Route exact path="/"><Home onRoutingChange={this.handleRoute} /></Route>
                             <Route path="/about"><About /></Route>
                             <Route path="/contact"><Contact /></Route>
                             <Route path="/games/tictactoe"><Tictactoe /></Route>
+                            <Route path="/games/sudoku"><Sudoku /></Route>
+                            <Route path="/weather"><Weather onRoutingChange={this.handleRoute} /></Route>
                             <Route><NoMatch /></Route>
                         </Switch>
                     </main>
