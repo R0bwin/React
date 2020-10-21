@@ -35,7 +35,7 @@ class Weather extends Component {
     
     async getGeoInfo() {
         try {
-            const data = await fetch(`http://ip-api.com/json/`)
+            const data = await fetch(`https://cors-anywhere.herokuapp.com/http://ip-api.com/json/`)
             .then(res => {return(res)})
             if (!data.ok) {
                 throw Error(data.statusText);
@@ -49,7 +49,7 @@ class Weather extends Component {
 
     async getWeatherInfo(lat, long) {
         try {
-            const weather = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=`+lat+`&lon=`+long+`&units=metric&appid=bf8898a7dc88cc8d3e0c25d2ba6b6004`)
+            const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=`+lat+`&lon=`+long+`&units=metric&appid=bf8898a7dc88cc8d3e0c25d2ba6b6004`)
             .then(res => {return(res)})
             if (!weather.ok) {
                 throw Error(weather.statusText);
