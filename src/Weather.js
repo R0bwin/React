@@ -35,11 +35,7 @@ class Weather extends Component {
     
     async getGeoInfo() {
         try {
-<<<<<<< HEAD
-            const data = await fetch(`https://ipapi.co/188.150.58.11/json/`)
-=======
             const data = await fetch(`http://ip-api.com/json/`)
->>>>>>> parent of 0570d96... Update Weather.js
             .then(res => {return(res)})
             if (!data.ok) {
                 throw Error(data.statusText);
