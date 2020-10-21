@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Board from '../Board';
 import Popup from '../Popup';
 
-import 'styles/modal.scss';
+import './styles/modal.scss';
 
 
 var row;
