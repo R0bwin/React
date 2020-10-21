@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import FullImage from 'components/FullImage';
+import FullImage from './components/FullImage';
 
 import 'styles/weather.scss';
 
