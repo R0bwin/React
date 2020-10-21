@@ -22,9 +22,13 @@ function Header() {
                             <NavLink className="nav-link" to="/algorithm/search">Search</NavLink>
                             <NavLink className="nav-link" to="/algorithm/sort">Sort</NavLink>
                         </NavDropdown>
+                        
+                        <Nav.Item><NavLink exact activeClassName="active" className="nav-link" to="/weather">Weather</NavLink></Nav.Item>
                     </Nav>
                     <Nav className="ml-auto">
+                    {/*
                         <Nav.Item><NavLink exact activeClassName="active" className="nav-link" to="/about">About</NavLink></Nav.Item>
+                    */}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

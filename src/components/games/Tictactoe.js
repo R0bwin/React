@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import Board from '../../components/Board';
+import Board from 'components/Board';
+import Popup from 'components/Popup';
+
+import 'styles/modal.scss';
+
 
 var row;
 var col;
+var modalText = "An error has occured with the scores.";
+const modalTitle = "Tictactoe game results";
 
 class Tictactoe extends Component {
 
@@ -14,19 +20,21 @@ class Tictactoe extends Component {
     constructor(props) {
 		super();
         this.handleChange = this.handleChange.bind(this);
+        this.onModalClose = this.onModalClose.bind(this);
         this.state = {
             playerTurn: "O",
-            grid: [
-                ["", "", ""],
-                ["", "", ""],
-                ["", "", ""]
-            ]
+            grid: Array(this.row).fill("").map(() => Array(this.col).fill("")),
+            lockedGrid: Array(this.row).fill(0).map(() => Array(this.col).fill(0)),
+            modalShow: false
         };
-	}
+    }
 
 	handleChange(position) {
-        this.checkScore(position);
-        this.changePlayerTurn();
+        this.addMarker(position);
+    }
+
+    onModalClose() {
+        this.setState({modalShow: false});
     }
 
     changePlayerTurn() {
@@ -37,20 +45,34 @@ class Tictactoe extends Component {
         }
     }
 
-    checkScore(position) {
+    addMarker(position) {
         let pos = position - 1;
         let r = Math.floor(pos/this.row);
         let c = (pos % this.col);
+        let tempArray = [];
+        
+        for (let i = 0; i < this.state.grid.length; i++) {
+            tempArray[i] = this.state.grid[i].slice();
+        }
 
-        this.state.grid[r][c] = this.state.playerTurn;
+        tempArray[r][c] = this.state.playerTurn;
+        this.setState({grid: tempArray}, () => this.gameUpdate());
+    }
 
+    gameUpdate() {
+        this.checkScore();
+        this.changePlayerTurn();
+    }
+
+    checkScore(position) {
         if(this.checkRow() || this.checkCol() || this.checkDiag()) {
-            console.log(this.state.playerTurn + " wins!");
-            this.setState({grid: [
-                ["", "", ""],
-                ["", "", ""],
-                ["", "", ""]
-            ]});
+            modalText = "Player " + this.state.playerTurn + " is the winner!";
+            this.setState({modalShow: true});
+            this.setState({grid: Array(this.row).fill("").map(() => Array(this.col).fill(""))});
+        } else if(this.checkDraw()) {
+            modalText = "The game ended in a draw!";
+            this.setState({modalShow: true});
+            this.setState({grid: Array(this.row).fill("").map(() => Array(this.col).fill(""))});
         }
     }
 
@@ -105,12 +127,18 @@ class Tictactoe extends Component {
         return winstate;
     }
 
-	componentDidMount(){
+    checkDraw() {
+        let tempArray = [];
 
-    }
-    
-	componentWillUnmount(){
+        for(var i = 0; i < this.state.grid.length; i++) {
+            tempArray = tempArray.concat(this.state.grid[i]);
+        }
 
+        if(tempArray.every((el) => el !== "")) {
+            return true;
+        }
+
+        return false;
     }
     
     render() {
@@ -119,10 +147,17 @@ class Tictactoe extends Component {
                 <Row>
                     <Col sm={2}></Col>
                     <Col sm={8}>
-                        <Board rows={this.row} cols={this.col} playerTurn={this.state.playerTurn} onTurnChange={this.handleChange}/>
+                        <Row className="mb-5">
+                            <Col sm={12} className="text-center">
+                                <h3>Tic tac toe</h3>
+                                <h6>(Easiest game created?)</h6>
+                            </Col>
+                        </Row>
+                        <Board grid={this.state.grid} rows={this.row} cols={this.col} onSquareClick={this.handleChange}/>
                     </Col>
                     <Col sm={2}></Col>
                 </Row>
+                {this.state.modalShow === true ? <Popup text={modalText} title={modalTitle} onModalClose={this.onModalClose} /> : '' }
             </Container>
   		)
 	}

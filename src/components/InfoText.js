@@ -6,9 +6,9 @@ function InfoText(props) {
     <React.Fragment>
       <h4>{props.title}</h4>
       <div className="mt-4">
-        {props.text.map(function (n) {
+        {props.text.map(function (n, key) {
           return ([
-            <p>{n}</p>
+            <p key={key}>{n}</p>
           ]);
         })}
       </div>

@@ -8,6 +8,7 @@ import Tictactoe from '../components/games/Tictactoe';
 
 import { NoMatch } from '../NoMatch';
 
+
 class Routes extends Component {
 
     constructor() {
@@ -25,10 +26,12 @@ class Routes extends Component {
                 <div className="contentWrapper">
                     <main className="mb-5">
                         <Switch>
-                            <Route exact path="/"><Home routing={this.props.routing} onRoutingChange={this.handleRoute} /></Route>
+                            <Route exact path="/"><Home onRoutingChange={this.handleRoute} /></Route>
                             <Route path="/about"><About /></Route>
                             <Route path="/contact"><Contact /></Route>
                             <Route path="/games/tictactoe"><Tictactoe /></Route>
+                            <Route path="/games/sudoku"><Sudoku /></Route>
+                            <Route path="/weather"><Weather onRoutingChange={this.handleRoute} /></Route>
                             <Route><NoMatch /></Route>
                         </Switch>
                     </main>

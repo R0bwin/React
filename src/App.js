@@ -30,7 +30,7 @@ class App extends Component {
 				<Router>
 					<div id="page-container" className={"pageContainer " + this.state.route}>
 						<Header />
-						<Routes routing={this.state.route} onRoutingChange={this.handleRoute} />
+							<Routes routing={this.state.route} onRoutingChange={this.handleRoute} />
 						<Footer />
 					</div>
 				</Router>
