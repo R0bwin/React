@@ -6,10 +6,9 @@ import Weather from '../Weather';
 import { About } from '../About';
 import { Contact } from '../Contact';
 import Tictactoe from '../components/games/Tictactoe';
-import Tictactoe from '../components/games/Sudoku';
+import Sudoku from '../components/games/Sudoku';
 
 import { NoMatch } from '../NoMatch';
-
 
 class Routes extends Component {
 
