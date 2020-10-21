@@ -44,34 +44,7 @@ class Weather extends Component {
             }
         } catch (error) {
             console.log(error);
-        }
-    }
-
-    async getGeoInfo1() {
-        try {
-            const data = await fetch(`https://freegeoip.app/json/`)
-            .then(res => {return(res)})
-            if (!data.ok) {
-                throw Error(data.statusText);
-            } else {
-                return data.json();
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    async getGeoInfo2() {
-        try {
-            const data = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=c362452f7b2241c8b933439ffed689ed`)
-            .then(res => {return(res)})
-            if (!data.ok) {
-                throw Error(data.statusText);
-            } else {
-                return data.json();
-            }
-        } catch (error) {
-            console.log(error);
+            return 0;
         }
     }
 
@@ -142,18 +115,22 @@ class Weather extends Component {
         this.handleRouting("weather");
 
         const geoData = await this.getGeoInfo();
-        const geoData1 = await this.getGeoInfo1();
-        const geoData2 = await this.getGeoInfo2();
+        if(geoData) {
+            const weatherData = await this.getWeatherInfo(geoData.latitude, geoData.longitude);
 
-        const weatherData = await this.getWeatherInfo(geoData.latitude, geoData.longitude);
+            this.setBackground(weatherData.weather[0].icon);
+            this.setState({area: geoData.city});
+            const description = weatherData.weather[0].description
+            
+            this.setState({temp: weatherData.main.temp});
+            this.setState({wind: weatherData.wind.speed});
+            this.setState({description: (description.charAt(0).toUpperCase() + description.slice(1))});
+        } else {
+            this.setBackground(1);
+            this.setState({area: "It appears you have adblocker enabled."});
+        }
 
-        this.setBackground(weatherData.weather[0].icon);
-        this.setState({area: geoData.city});
-        const description = weatherData.weather[0].description
-        
-        this.setState({temp: weatherData.main.temp});
-        this.setState({wind: weatherData.wind.speed});
-        this.setState({description: (description.charAt(0).toUpperCase() + description.slice(1))});
+
     }
 
     componentWillUnmount(){
@@ -172,7 +149,10 @@ class Weather extends Component {
 	render() {
 		return (
 			<React.Fragment>
-                {this.state.temp ? <FullImage image={this.state.image} title={this.state.area + ", " + this.state.temp + " °C"} subTitle={this.state.description}/> : ''}
+                {this.state.temp ? 
+                    <FullImage image={this.state.image} title={this.state.area + ", " + this.state.temp + " °C"} subTitle={this.state.description}/> : 
+                    <FullImage image={this.state.image} title={this.state.area} />
+                }
                 <div>
                     {this.getWeatherEffect()}
                 </div>
