@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import FullImage from './components/FullImage';
 
-import 'styles/weather.scss';
+import './styles/weather.scss';
 
 function getRaindrops(num) {
     let rain = [];
