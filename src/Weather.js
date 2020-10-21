@@ -47,6 +47,34 @@ class Weather extends Component {
         }
     }
 
+    async getGeoInfo1() {
+        try {
+            const data = await fetch(`https://freegeoip.app/json/`)
+            .then(res => {return(res)})
+            if (!data.ok) {
+                throw Error(data.statusText);
+            } else {
+                return data.json();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async getGeoInfo2() {
+        try {
+            const data = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=c362452f7b2241c8b933439ffed689ed`)
+            .then(res => {return(res)})
+            if (!data.ok) {
+                throw Error(data.statusText);
+            } else {
+                return data.json();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     async getWeatherInfo(lat, long) {
         try {
             const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=`+lat+`&lon=`+long+`&units=metric&appid=bf8898a7dc88cc8d3e0c25d2ba6b6004`)
@@ -114,6 +142,9 @@ class Weather extends Component {
         this.handleRouting("weather");
 
         const geoData = await this.getGeoInfo();
+        const geoData1 = await this.getGeoInfo1();
+        const geoData2 = await this.getGeoInfo2();
+
         const weatherData = await this.getWeatherInfo(geoData.latitude, geoData.longitude);
 
         this.setBackground(weatherData.weather[0].icon);
