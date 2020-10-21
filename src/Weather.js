@@ -35,7 +35,7 @@ class Weather extends Component {
     
     async getGeoInfo() {
         try {
-            const data = await fetch(`https://cors-anywhere.herokuapp.com/http://ip-api.com/json/`)
+            const data = await fetch(`https://ipapi.co/188.150.58.11/json/`)
             .then(res => {return(res)})
             if (!data.ok) {
                 throw Error(data.statusText);
@@ -114,7 +114,7 @@ class Weather extends Component {
         this.handleRouting("weather");
 
         const geoData = await this.getGeoInfo();
-        const weatherData = await this.getWeatherInfo(geoData.lat, geoData.lon);
+        const weatherData = await this.getWeatherInfo(geoData.latitude, geoData.longitude);
 
         this.setBackground(weatherData.weather[0].icon);
         this.setState({area: geoData.city});
