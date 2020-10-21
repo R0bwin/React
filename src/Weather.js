@@ -127,7 +127,7 @@ class Weather extends Component {
             this.setState({description: (description.charAt(0).toUpperCase() + description.slice(1))});
         } else {
             this.setBackground(1);
-            this.setState({area: "It appears you have adblocker enabled."});
+            this.setState({area: "Couldn't load your local temperature. Adblocker may be blocking this."});
         }
 
 
