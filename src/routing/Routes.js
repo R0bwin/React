@@ -28,7 +28,7 @@ class Routes extends Component {
                     <main className="mb-5">
                         <Switch>
                             <Route exact path="/"><Home onRoutingChange={this.handleRoute} /></Route>
-                            <Route path="React/about"><About /></Route>
+                            <Route path="/React/about"><About /></Route>
                             <Route path="/contact"><Contact /></Route>
                             <Route path="/games/tictactoe"><Tictactoe /></Route>
                             <Route path="/games/sudoku"><Sudoku /></Route>
