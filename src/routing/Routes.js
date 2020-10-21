@@ -27,14 +27,15 @@ class Routes extends Component {
                 <div className="contentWrapper">
                     <main className="mb-5">
                         <Switch>
-                            <Route exact path="/"><Home onRoutingChange={this.handleRoute} /></Route>
-                            <Route path="/React/about"><About /></Route>
-                            <Route path="/contact"><Contact /></Route>
-                            <Route path="/games/tictactoe"><Tictactoe /></Route>
-                            <Route path="/games/sudoku"><Sudoku /></Route>
-                            <Route path="/weather"><Weather onRoutingChange={this.handleRoute} /></Route>
+                            <Route exact path={this.props.rootPath}><Home onRoutingChange={this.handleRoute} /></Route>
+                            <Route path={this.props.rootPath + "/about"}><About /></Route>
+                            <Route path={this.props.rootPath + "/contact"}><Contact /></Route>
+                            <Route path={this.props.rootPath + "/games/tictactoe"}><Tictactoe /></Route>
+                            <Route path={this.props.rootPath + "/games/sudoku"}><Sudoku /></Route>
+                            <Route path={this.props.rootPath + "/weather"}><Weather onRoutingChange={this.handleRoute} /></Route>
                             <Route><NoMatch /></Route>
                         </Switch>
+
                     </main>
                 </div>
             </React.Fragment>

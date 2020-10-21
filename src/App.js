@@ -11,9 +11,10 @@ class App extends Component {
 
 	constructor() {
         super();
-        this.handleRoute = this.handleRoute.bind(this);
+		this.handleRoute = this.handleRoute.bind(this);
         this.state = {
-          route: ""
+			rootPath: "/React",
+          	route: ""
         };
     }
 
@@ -29,8 +30,8 @@ class App extends Component {
 			<React.Fragment>
 				<Router>
 					<div id="page-container" className={"pageContainer " + this.state.route}>
-						<Header />
-							<Routes routing={this.state.route} onRoutingChange={this.handleRoute} />
+						<Header rootPath={this.state.rootPath} />
+							<Routes routing={this.state.route} onRoutingChange={this.handleRoute} rootPath={this.state.rootPath} />
 						<Footer />
 					</div>
 				</Router>
