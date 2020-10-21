@@ -26,6 +26,7 @@ function Header() {
                         <Nav.Item><NavLink exact activeClassName="active" className="nav-link" to="/weather">Weather</NavLink></Nav.Item>
                     </Nav>
                     <Nav className="ml-auto">
+                        <Nav.Item><NavLink exact activeClassName="active" className="nav-link" to="/React/about">About</NavLink></Nav.Item>
                     {/*
                         <Nav.Item><NavLink exact activeClassName="active" className="nav-link" to="/about">About</NavLink></Nav.Item>
                     */}
