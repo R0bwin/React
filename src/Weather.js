@@ -35,7 +35,7 @@ class Weather extends Component {
     
     async getGeoInfo() {
         try {
-            const data = await fetch(`http://ip-api.com/json/`)
+            const data = await fetch(`https://ipapi.co/json/`)
             .then(res => {return(res)})
             if (!data.ok) {
                 throw Error(data.statusText);
