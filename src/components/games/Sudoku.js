@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import Board from 'components/Board';
-import Popup from 'components/Popup';
+import Board from '../Board';
+import Popup from '../Popup';
 
 var row;
 var col;

@@ -1,5 +1,5 @@
 import React from 'react';
-import 'styles/thumbnail.scss';
+import '../styles/thumbnail.scss';
 
 function Thumbnail(props) {
     return (

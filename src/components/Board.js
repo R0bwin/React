@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Square from 'components/Square';
+import Square from '../components/Square';
 
-import 'styles/board.scss';
+import '../styles/board.scss';
 
 function renderSquare(i, width, fsize, handleSquare, value, locked) {
     return <Square key={i} pos={i} value={value} width={width} fsize={fsize} onSquareClick={handleSquare} locked={locked} />;
