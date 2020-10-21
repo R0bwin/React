@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { BrowserRouter as Route, Switch } from 'react-router-dom';
 
 import Home from '../Home';
+import Weather from '../Weather';
 import { About } from '../About';
 import { Contact } from '../Contact';
 import Tictactoe from '../components/games/Tictactoe';
+import Tictactoe from '../components/games/Sudoku';
 
 import { NoMatch } from '../NoMatch';
 
